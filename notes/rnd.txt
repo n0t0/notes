@@ -1,0 +1,32 @@
+export NGINX_USER=root NGINX_PORT=8084 APP_ENV="qa" VAULT_ADDR=http://vault-staging:8200 VAULT_TOKEN=00350e40-4d43-f9b3-e9e6-c8e9cf3b7dcb VAULT_SECRET_VERSION=1
+export NGINX_USER=root NGINX_PORT=8084 APP_ENV="qa" VAULT_ADDR=http://vault-test:8200 VAULT_TOKEN="c15e1316-fbf3-64c1-cab4-4b4cd91a2f3f" VAULT_SECRET_VERSION=1
+    
+    ./cli deploy
+
+docker stack deploy --with-registry-auth -c territories-stack.yml territories
+
+
+usav1svhapt10.ambrygenetics.local
+DB: matomo
+U: matomo_user
+P: mat@devteam@15#$
+
+
+
+
+env -i \ 
+    APP_ENV="qa" \
+    TAG="1.2.0" \
+    NGINX_PORT=8084 \
+    VAULT_TOKEN="c15e1316-fbf3-64c1-cab4-4b4cd91a2f3f" \
+    VAULT_ADDR="http://vault-test:8200" \
+    VAULT_SECRET_VERSION=1 \
+    docker stack deploy --with-registry-auth -c territories-stack.yml territories
+
+
+Igor
+
+1. MNT points
+2. DNS resolv
+3. bmb
+4. kube?
