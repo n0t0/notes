@@ -46,7 +46,7 @@ https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#back
 
 https://www.youtube.com/watch?v=qRPNuT080Hk
 
-## Security
+### Security
 
 ### Secure Hosts
 
@@ -220,3 +220,13 @@ $ kubectl get svc
 - service user - manager by an object in kubernetes - used to authenticate within the cluster (cluster)
 - using Service Account Tokens --> storewd in Secrets
 - service users are specific to a namespace
+
+### Kubetest - Tests
+
+- e2e: ~1000
+- Full e2e = ~1000 Test / 12 Hours
+
+- conformance: ~160
+- Conformance = ~164 Test / 1.5 Hours
+- sonobuoy
+
