@@ -166,6 +166,9 @@ $ iplink set <veth-blue> netns <blue>
 
 ### Kubectl Advanced
 
+$ kubectl create deployment sample --image naginx --dry-run -o yaml
+$ kubectl create job sample --image naginx --dry-run -o yaml
+
 ### StatefullSets
 
 ### Nodes
