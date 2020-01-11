@@ -4,10 +4,32 @@ pattern { action }
 pattern { action }
 ...
 
+### Print Statement
 
-awk '/foo/ { print $0 }' input-file --> prints lines found "foo" lines 
+awk '{print}' text.txt --> print all
+awk '{print $1$2$3}' text.txt --> concatenated
+awk '{print $1,$2,$3}' text.txt --> separated
+awk '{print $0}' text.txt --> print all
+awk '{print $NF}' text.txt --> print last column
+awk '{print $(NF -1)}' text.txt --> print second to last
+awk 'NR==2 {print $0}' text.txt --> print second row
+awk 'NR==2, NR==5 {print $0}' text.txt --> print second to fifth rows
+awk 'NR==2;NR==5 {print $0}' text.txt --> print just second and fifth rows
+awk -F ";" '{print $1}' sep.txt --> print with field separator ';'
 
-awk '/foo/' input-file --> likewise 
+### Look for string in a file
+
+awk '/usa/ { print $0 }' text. --> print all lines with 'usa'
+awk '/usa|ita/ { print $0 }' text. --> print all lines with 'usa' or 'italy'
+awk '$2~/i/ { print $0 }' text. --> look for 'i' in second column
+
+awk '/foo/ { print $0 }' input-file --> prints lines found "foo" lines
+awk '/foo/' input-file --> likewise
+
+## Print the len of a string
+
+awk '{ print lenght($1) }' text.txt --> lenght for each in first column 
+awk '{ print $1, lenght($1) }' text.txt --> lenght for each in first column 
 
 ### Two Rules 
 
@@ -16,7 +38,7 @@ awk '/12/ { print $0 }
 
 
 ls - l | awk '$5 == "Nov" { sum += $4 }
-              END { print sum }' 
+              END { print sum }'
 
 ### How to Run awk Programs
 
