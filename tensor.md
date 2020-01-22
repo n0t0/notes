@@ -23,4 +23,3 @@ $ docker run -d \
 --name TensorFlow \
 --mount source=tensorflow,target=/app \
 nvcr.io/nvidia/tensorflow:18.04-py3 --> run tensorflow and create a volume 
-

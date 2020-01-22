@@ -1,6 +1,6 @@
 ### Login 
 
-mysql -u <user> -p -h usav1svhaps10>
+mysql -u <user> -p -h usav1svhaps10
 
 ### Select 
 

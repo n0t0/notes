@@ -1,6 +1,5 @@
 $ qsub <script>.sh --> add a job
 
-
 $ qconf -sql --> list queues
 
 $ qconf -sq <queue>.q --> queue's attributes
@@ -61,5 +60,3 @@ qdel <jobID>
 4. Create an <user/role> to be used by jobs to access </path/to/upload>
 5. Create a job definition that uses the built image
 6. Submit and run a job that execute the job script from </path/to/upload>
-
-
