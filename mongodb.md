@@ -19,7 +19,6 @@ db.createUser({ user: "sample_kits", pwd: "KjFA@dasd^bm", roles: [{role: "applic
 
 db.grantRolesToUser( "user", [ {role: "developer", db: "query_tool" } ], { <writeConcern> } )
 
-
 ### Update user 
 
 db.updateUser( "user", { roles : [{ role: "developer", db: "admin" }], pwd: "    ",})

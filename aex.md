@@ -46,3 +46,4 @@ user = "ambry_exchange"
 passwd = "cA3DQMEzncnGgdyu"
 addr = "usav1svhapp50:3307"
 dbname = "telcor"
+ss

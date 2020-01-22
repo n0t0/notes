@@ -122,6 +122,8 @@ $ cat /proc/sys/net/ipv4/ip_forward=1
 
 ### DNS
 
+$ ls /etc/kubernetes/addons on master node
+
 $ nslookup www.google.com
 $ dig
 

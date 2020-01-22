@@ -51,12 +51,3 @@ Automate and Abstract
 ### SUSE + AWS
 
 - modernize application delivery and improve release management 
-
-
-
-
-
-
-
-
-

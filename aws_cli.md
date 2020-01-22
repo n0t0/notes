@@ -63,8 +63,6 @@ aws ecr list-images --repository-name itdev/nginx
 - tag an image with 
 docker tag nginx:1.9 696327054069.dkr.ecr.us-west-2.amazonaws.com/itdev/nginx:1.9
 
-
-
 ### S3
 
 aws s3api create-bucket --bucket ecs-itdev-test --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2
@@ -87,7 +85,6 @@ aws ec2 run-instances --image-id ami-082b5a644766e0e6f --count 1 --instance-type
 -- status 
 
 aws ec2  describe-instance-status --instance-id i-047e588f9c3d7fc37
-
 
 ### RDS
 
