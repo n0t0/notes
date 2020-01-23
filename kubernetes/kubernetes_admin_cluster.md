@@ -166,6 +166,10 @@ $ iplink set <veth-blue> netns <blue>
 
 ### Pod Presets
 
+- inject kubernetes resources like secrets, configmaps, volumes, and envs
+- when injecting env vars and volumemounts, the pod preset will apply
+- the changes to all containers within the pod
+
 ### Kubectl Advanced
 
 $ kubectl create deployment sample --image naginx --dry-run -o yaml
@@ -173,9 +177,14 @@ $ kubectl create job sample --image naginx --dry-run -o yaml
 
 ### StatefullSets
 
+- runs stateful applications, that need stable pod hostname
+- podnames will have sticky identity e.g. podname-0, podname-1, podname-2
+- allows stateful apps stable storage
+- allows statefull app to order the startup and teardown
+
 ### Nodes
 
-$ kubectl get nodes -o wide 
+$ kubectl get nodes -o wide
 $ kubectl get pods -o json
 $ kubectl get pods -o=jsonpath='{   .items[0].spec.containers[0].image }'
 $ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
@@ -184,7 +193,7 @@ $ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
 
 $ kubectl run --generator=run-pod/v1 elephant --image=redis --dry-run -o yaml > elephant
 
-$ kubectl run nginx-deploy --image=nginx:1.16 --replicas=1 --record 
+$ kubectl run nginx-deploy --image=nginx:1.16 --replicas=1 --record
 $ kubectl get deployments .
 $ kubectl rollout history deployment nginx-deploy
 $ kubectl set image deployment/nginx-deploy nginx-deploy=nginx:1.17 --record
