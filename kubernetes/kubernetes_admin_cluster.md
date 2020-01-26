@@ -209,6 +209,11 @@ $ kubectl expose pod nginx-resolver --name=nginx-resolver-service --port=80 --ta
 
 $ kubectl get svc
 
+### Custom Resource Definitions
+
+- extention of the Kubernetes API
+- extend the functionality of the Kube cluster
+
 ### Resource Quotas
 
 - devide cluster in namespaces
