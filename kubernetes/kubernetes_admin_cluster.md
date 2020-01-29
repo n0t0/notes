@@ -1,3 +1,78 @@
+### Pod
+
+- a Pod describes an application running on Kubernetes
+- a Pod can contain one or more tigthly coupled containers, that make up an app
+
+### Pod State
+### Pod Status
+
+$ kubectl get pods
+
+- Running
+- Pending
+- Succeeded
+- Failed
+- Unknown 
+
+### Pod Condition
+
+$ kubectl describe <pod>
+
+- PodScheduled
+- Ready
+- Initiliazed
+- Unschedulable
+- ContainersReady
+
+### Container Statuses
+
+$ kubectl get pod <pod> -o yaml
+
+- Running
+- Terminating
+- Waiting
+
+### Pod Lifecycle 
+
+- initContainers:
+- licecycle: postStart: :l/r-probes: :preStop
+
+$ watch n1 kubectl get pods
+
+### Multi-container PODs
+
+- sidecar
+- adapter
+- ambassador
+
+### Deployments
+
+- Replica Set is next-gen ReplicationController
+- Deployment declaration in Kube allows you to do app deployments and updates
+- When using Deployment, you define the state of your app (kube will match desired state)
+
+- Create a Deployment
+- Update a Deployment
+- Do rolling update (zero downtime)
+- Roll Back to a prev version
+- Pause/Resume a deployment (roll-out to only a certain percentage)
+
+### Services
+
+- when using Deployments, when updaing the image version, pods are terminated and new pods take the place of older pods 
+- that's why Pods hould never be accesssed directly, but always throught a Service
+- a Service is a logical bridge between the `mortal` pods and other services or end-users
+
+### Service Type
+
+- ClusterIP (default) --> reachable inside the cluster only
+- NodePort --> outside the cluster, through IPs on the nodes themselves
+- LoadBalancer (cloud)
+- ExternalName --> adds CNAME DNS record to CoreDNS only
+
+- Ingress
+
+
 ### Cluster Maintenance
 ### Troubleshooting
 
@@ -218,11 +293,18 @@ $ kubectl get svc
 
 - devide cluster in namespaces
 
+- requests capacity --> minimum amount of resources the pod needs
+- resource limit -> limit
+
 - requests.cpu
 - requests.mem
 - requests.storage
 - limits.cpu
 - limits.memory
+
+### Namespaces
+
+
 
 ### User Management 
 
