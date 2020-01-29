@@ -57,6 +57,18 @@ $ watch n1 kubectl get pods
 - Roll Back to a prev version
 - Pause/Resume a deployment (roll-out to only a certain percentage)
 
+### Volumes/Storage
+
+- volumes within pod-definition
+- persistent volumes (PVs)
+
+- stateless 
+- statefull
+
+- NFS
+- Cephfs
+- auto provisioned volumes
+
 ### Services
 
 - when using Deployments, when updaing the image version, pods are terminated and new pods take the place of older pods 
@@ -72,6 +84,184 @@ $ watch n1 kubectl get pods
 
 - Ingress
 
+### Service Discovery (advanced) with DNS
+
+- /etc/kubernetes/addons - on master node 
+- to make DNS work, a pod will need a Service definition
+
+$ nslookup www.google.com
+$ dig
+$ host app1-service.default.svc.cluster.local
+
+### Ingress 
+
+- inbound connection to the cluster
+- IngressController
+
+### Kube DNS
+
+<hostname>.<namespace>.svc.cluster.local
+web-service.apps.svc.cluster.local
+
+10.107.37.188 --> IP
+cluster.local --> Root
+svc --> Type
+apps --> Namespace
+web-service --> Hostname
+
+### External DNS
+
+- for every hostname in ingress; it will create a new record to send traffic to your loadbalancer
+- On Cloud, use 1 LoadBalancer that captures all the external traffic and
+- sends it to a ingress controller
+
+### CNI in Kubernetes
+
+- CNI (Calico, Weave)
+- an overlay network (flannel)
+
+### Network Policy
+
+- allow traffic only from specific pod
+
+- flannel does not support network policies
+
+### Linux Networking
+
+$ ip addr add 192.168.1.11/24 dev eth0
+$ ip route add 192.168.2.0/24 via 192.168.1.1
+$ ip route add default via 192.168.2.1
+
+$ cat /proc/sys/net/ipv4/ip_forward=1
+
+### Network Namespaces
+
+$ ip netns add <namespace>
+
+$ ip netns --> list namespaces
+$ ip netns exec <namespace> ip link
+$ ip -n <namespace> link
+
+$ arp
+$ route
+
+$ iplink add <veth-red> type veth peer name <veth-blue>
+$ iplink set <veth-red> netns <red>
+$ iplink set <veth-blue> netns <blue>
+
+### Docker Networking
+### Container Networking Interface (CNI)
+
+- rkt 
+- mesos
+- kubernetes - creates container under --> docker run --network=none
+
+### Interpod Affinity and Anti-Affinity
+
+- good for co-located pods
+- e.g. redis pods running on the same node as app1 pod
+
+- topology domain
+- topologyKey
+
+- (take some computing power in +100 nodes cluster)
+
+### Healthchecks
+
+- run a command in a container periodically
+- livenessProbes
+- periodic checks on a URL (HTTP)
+
+$ kubectl create namespace <myspace>
+
+- set a default namespace to launch resources in:
+$ export CONTEXT=$(kubectl config view|awk '/current-context/{print $2}')
+$ kubectl config set-context $CONTEXT --namespace=<myspace>
+
+### liveness/readiness/startupProbes
+
+- livenessProbes indicate whether the container is running --> if the check fails, the container will be restarted
+- readinessProbes indicate whether the container is ready to serve requests --> if the check fails, the container will not be restarted, but the Pod's IP address will be removed from the Service, so it'll not serve any requests anymore
+
+### Custom Resource Definitions
+
+- extention of the Kubernetes API
+- extend the functionality of the Kube cluster
+
+### Resource Quotas
+
+- devide cluster in namespaces
+
+- requests capacity --> minimum amount of resources the pod needs
+- resource limit -> limit
+- use default quotas**
+
+- requests.cpu
+- requests.mem
+- requests.storage
+- limits.cpu
+- limits.memory
+
+$ kubectl describe quota/computer-quota --namespace=<myspace>
+$ kubectl describe limits <mylimits> --namespace=<myspace>
+
+### Namespaces
+
+- create virtual cluster within same physical servers
+- logically separates cluster
+- resource name must be unique wihin single namespace
+- can limit resources on a per namespace basis (e.g. marketing team can only 
+use a maximum of 1GiB of memory)
+
+### User Management 
+
+- 2 types
+
+- normal user --> this user is not managed using object
+- client certificates
+- bearer tokens
+- authentication proxy
+- http basic authe
+- open ID
+- webhooks
+
+- service user - manager by an object in kubernetes - used to authenticate within the cluster (cluster)
+- using Service Account Tokens --> storewd in Secrets
+- service users are specific to a namespace
+
+### Add a Users
+
+- on master node:
+$ openssl genrsa -out iivanov.pem 2048
+$ openssl req -new -key iivanov.pem -out iivano-csr.pem -subj "/CN=iivanov/0=myteam/"
+$ sudo openssl x509 -req -in iivanov-csr.pem -CA /var/lib/localkube/certs/ca.crt -CAkey /var/lib/localkube/certs/ca.key -CAcreateserial -out iivanov.crt -days 10000
+$ cat iivanov.crt 
+$ cat iivnaov.pem
+- add *.crt and *.pem to ~/.kube/config
+- create *.crt and *.pem in ~/.kube/iivanov.key|.crt
+
+### RBAC
+
+- Role (single namespace) and ClusterRole (cluster-wide)
+- RoleBinding (single namespace) and ClusterRoleBindig (cluster-wide)
+
+$ kubectl get roles
+
+$ kubectl get rolebinding
+
+$ kubectl auth can-i create deployment
+$ kubectl auth can-i delete nodes
+$ kubectl auth can-i create deploymentse --as dev-user
+
+
+
+
+
+
+
+
+
+
 
 ### Cluster Maintenance
 ### Troubleshooting
@@ -84,6 +274,7 @@ $ kubectl uncordon node-1
 
 ### Kubernetes Releases 
 
+- v1.17 -- ~
 - v1.16 -- current
 - v1.15 -- supported
 - v1.14 -- supported
@@ -122,12 +313,52 @@ https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#back
 https://www.youtube.com/watch?v=qRPNuT080Hk
 
 ### Security
-
 ### Secure Hosts
 
 - root disabled
 - password based authentication disalbed 
 - ssh key based auth
+
+### Node Maintenance
+
+- Node Controller --> assigns IP space, node list, health of the node
+
+### TLS on AWS ELB
+
+ - annotations
+
+### Admission Controllers
+
+- intercept requests setn to kubernetes API server
+
+$ kube-apiserver --enable-admission-plugins=NamespaceLifecycle,...
+
+- NamespaceLifecycle
+- LimitRanger
+- ServiceAccount
+- DefaultStorageClass
+- DefaultTolerationSeconds
+- NodeRestriction
+- MutatingAdmissionWebhook
+- ValidatingAdmissionWebhook
+
+### Pod Security Policies
+
+- deny using privileged mode in pods
+- control what volumes can be mounted
+- containers can't run as root but within <UID/GID> range
+
+$ kubectl edit cluster
+$ kubectl get podsecuritypolicy
+
+### etcd
+
+- used by kubernetes as data backend
+- k/v store
+
+### Raft consensus algorithm
+
+https://raft.github.io
 
 ### Authentication
 
@@ -153,15 +384,6 @@ $ kubectl config view
 
 - kube proxy is not kubectl proxy
 
-### RBAC
-
-$ kubectl get roles
-
-$ kubectl get rolebinding
-
-$ kubectl auth can-i create deployment
-$ kubectl auth can-i delete nodes
-$ kubectl auth can-i create deploymentse --as dev-user
 
 ### Roles
 
@@ -179,65 +401,12 @@ $ kubectl create secret docker-registry regcred \
 
 - runAsUser 1000
 
-### Network Policy
-
-- allow traffic only from specific pod
-
-- flannel does not support network policies
-
-### Network
-
-### Linux Networking
-
-$ ip addr add 192.168.1.11/24 dev eth0
-$ ip route add 192.168.2.0/24 via 192.168.1.1
-$ ip route add default via 192.168.2.1
-
-$ cat /proc/sys/net/ipv4/ip_forward=1
-
-### DNS
-
-$ ls /etc/kubernetes/addons on master node
-
-$ nslookup www.google.com
-$ dig
-
-### Network Namespaces
-
-$ ip netns add <namespace>
-
-$ ip netns --> list namespaces
-$ ip netns exec <namespace> ip link
-$ ip -n <namespace> link
-
-$ arp
-$ route
-
-$ iplink add <veth-red> type veth peer name <veth-blue>
-$ iplink set <veth-red> netns <red>
-$ iplink set <veth-blue> netns <blue>
-
-### Docker Networking
-
-### Container Networking Interface (CNI)
-
-- rkt 
-- mesos
-- kubernetes - creates container under --> docker run --network=none
 
 ### Cluster Nodes
 
 ### Pod Networking
 
-### CNI in Kubernetes
-
-### CNI weave
-
 ### IAM (IP address management)
-
-### Service Networking
-
-### Ingress
 
 ### Pod Presets
 
@@ -284,43 +453,7 @@ $ kubectl expose pod nginx-resolver --name=nginx-resolver-service --port=80 --ta
 
 $ kubectl get svc
 
-### Custom Resource Definitions
 
-- extention of the Kubernetes API
-- extend the functionality of the Kube cluster
-
-### Resource Quotas
-
-- devide cluster in namespaces
-
-- requests capacity --> minimum amount of resources the pod needs
-- resource limit -> limit
-
-- requests.cpu
-- requests.mem
-- requests.storage
-- limits.cpu
-- limits.memory
-
-### Namespaces
-
-
-
-### User Management 
-
-- 2 types
-
-- normal user --> this user is not managed using object
-- client certificates
-- bearer tokens
-- authentication proxy
-- http basic authe
-- open ID
-- webhooks
-
-- service user - manager by an object in kubernetes - used to authenticate within the cluster (cluster)
-- using Service Account Tokens --> storewd in Secrets
-- service users are specific to a namespace
 
 ### Kubetest - Tests
 
@@ -330,4 +463,3 @@ $ kubectl get svc
 - conformance: ~160
 - Conformance = ~164 Test / 1.5 Hours
 - sonobuoy
-
