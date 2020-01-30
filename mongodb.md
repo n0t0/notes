@@ -27,6 +27,11 @@ db.updateUser( "user", { roles : [{ role: "developer", db: "admin" }], pwd: "   
 
 db.changeUserPassword("sample_kits", "DAKU@Hdsa2$$")
 
+### Create DB
+
+use <Database>
+db.myCollection.insertOne( { x: 1 });
+
 ### NOSp3
 
 mongo --port 27017 -u "root" -p "f0xh0und" --authenticationDatabase "admin"
