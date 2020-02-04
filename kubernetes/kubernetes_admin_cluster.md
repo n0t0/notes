@@ -1,3 +1,8 @@
+### Cluster Config
+
+$ kubectl config view
+$ kubectl cluster-info
+
 ### Pod
 
 - a Pod describes an application running on Kubernetes
@@ -252,6 +257,11 @@ $ kubectl get rolebinding
 $ kubectl auth can-i create deployment
 $ kubectl auth can-i delete nodes
 $ kubectl auth can-i create deploymentse --as dev-user
+
+### Getting a Token 
+
+$ kubectl -n kubernetes-dashboard get secret
+$ kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-x9nd8
 
 
 
