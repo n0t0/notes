@@ -1,7 +1,17 @@
+
+
+
+
 ### Cluster Config
 
 $ kubectl config view
 $ kubectl cluster-info
+
+### Kubeconfig
+
+- contexts: 
+
+$ kubectl config view
 
 ### Pod
 
@@ -124,11 +134,13 @@ web-service --> Hostname
 
 - CNI (Calico, Weave)
 - an overlay network (flannel)
+- rkt 
+- mesos
+- kubernetes - creates container under --> docker run --network=none
 
 ### Network Policy
 
 - allow traffic only from specific pod
-
 - flannel does not support network policies
 
 ### Linux Networking
@@ -154,12 +166,18 @@ $ iplink add <veth-red> type veth peer name <veth-blue>
 $ iplink set <veth-red> netns <red>
 $ iplink set <veth-blue> netns <blue>
 
-### Docker Networking
-### Container Networking Interface (CNI)
+### TLS on AWS ELB
 
-- rkt 
-- mesos
-- kubernetes - creates container under --> docker run --network=none
+- TLS termination 
+- annotations
+
+### TLS Certs  
+
+- openssl 
+
+$ kubectl get csr
+$ kubectl certificate approve jane
+
 
 ### Interpod Affinity and Anti-Affinity
 
@@ -258,6 +276,35 @@ $ kubectl auth can-i create deployment
 $ kubectl auth can-i delete nodes
 $ kubectl auth can-i create deploymentse --as dev-user
 
+- webhook --> sends autorhozation request to an exnternal REST interface
+
+- role
+- roleBinding
+- clusterRole
+- clusterRoleBinding
+
+$ kubectl config view
+$ kubectl config set-context --cluster=*.* --user edward
+$ kubectl config use-context edward
+$ kubectl config get contexts
+
+### Admission Controllers
+
+- intercept requests setn to kubernetes API server
+
+$ kube-apiserver --enable-admission-plugins=NamespaceLifecycle,...
+
+- NamespaceLifecycle
+- LimitRanger
+- ServiceAccount
+- DefaultStorageClass
+- DefaultTolerationSeconds
+- NodeRestriction
+- **MutatingAdmissionWebhook
+- **ValidatingAdmissionWebhook
+- ResourceQuota
+- PodSecurityPolicy
+
 ### Getting a Token 
 
 $ kubectl -n kubernetes-dashboard get secret
@@ -265,15 +312,20 @@ $ kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-x9
 
 
 
-
-
-
-
-
-
-
-
 ### Cluster Maintenance
+### Nodes
+
+$ kubectl get nodes -o wide
+$ kubectl get pods -o json
+$ kubectl get pods -o=jsonpath='{   .items[0].spec.containers[0].image }'
+$ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
+
+### Node Maintenance
+
+- Node Controller --> assigns IP space, node list, health of the node
+
+$ kubectl drain <node> --grace-period=600
+
 ### Troubleshooting
 
 $ kube-controller-manager --pod-eviction-timeout=5m0s
@@ -322,35 +374,29 @@ https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#back
 
 https://www.youtube.com/watch?v=qRPNuT080Hk
 
-### Security
+
+
+
+
+
+## Security
 ### Secure Hosts
 
 - root disabled
 - password based authentication disalbed 
 - ssh key based auth
 
-### Node Maintenance
+### Security Context
 
-- Node Controller --> assigns IP space, node list, health of the node
+- runAsUser 1000
 
-### TLS on AWS ELB
+### Security Images
 
- - annotations
-
-### Admission Controllers
-
-- intercept requests setn to kubernetes API server
-
-$ kube-apiserver --enable-admission-plugins=NamespaceLifecycle,...
-
-- NamespaceLifecycle
-- LimitRanger
-- ServiceAccount
-- DefaultStorageClass
-- DefaultTolerationSeconds
-- NodeRestriction
-- MutatingAdmissionWebhook
-- ValidatingAdmissionWebhook
+$ kubectl create secret docker-registry regcred \
+    --docker-server=
+    --docker-username=
+    --docker-password=
+    --docker-email=
 
 ### Pod Security Policies
 
@@ -374,19 +420,6 @@ https://raft.github.io
 
 - local users,pass,userID
 
-### TLS Certs  
-
-- openssl 
-
-$ kubectl get csr
-$ kubectl certificate approve jane
-
-### Kubeconfig
-
-- contexts: 
-
-$ kubectl config view
-
 ### API Groups
 
 - /version
@@ -394,29 +427,15 @@ $ kubectl config view
 
 - kube proxy is not kubectl proxy
 
-
 ### Roles
 
 $ kubectl api-resources --namespaced=true/false
 
-### Security Images
-
-$ kubectl create secret docker-registry regcred \
-    --docker-server=
-    --docker-username=
-    --docker-password=
-    --docker-email=
-
-### Security Context
-
-- runAsUser 1000
 
 
-### Cluster Nodes
 
-### Pod Networking
 
-### IAM (IP address management)
+
 
 ### Pod Presets
 
@@ -435,13 +454,6 @@ $ kubectl create job sample --image naginx --dry-run -o yaml
 - podnames will have sticky identity e.g. podname-0, podname-1, podname-2
 - allows stateful apps stable storage
 - allows statefull app to order the startup and teardown
-
-### Nodes
-
-$ kubectl get nodes -o wide
-$ kubectl get pods -o json
-$ kubectl get pods -o=jsonpath='{   .items[0].spec.containers[0].image }'
-$ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
 
 ### Mocl
 
