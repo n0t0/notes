@@ -1,25 +1,15 @@
-
-
-
-
+## Gen
 ### Cluster Config
 
 $ kubectl config view
 $ kubectl cluster-info
-
-### Kubeconfig
-
-- contexts: 
-
-$ kubectl config view
 
 ### Pod
 
 - a Pod describes an application running on Kubernetes
 - a Pod can contain one or more tigthly coupled containers, that make up an app
 
-### Pod State
-### Pod Status
+### Pod State / Pod Status
 
 $ kubectl get pods
 
@@ -178,7 +168,6 @@ $ iplink set <veth-blue> netns <blue>
 $ kubectl get csr
 $ kubectl certificate approve jane
 
-
 ### Interpod Affinity and Anti-Affinity
 
 - good for co-located pods
@@ -263,6 +252,21 @@ $ cat iivnaov.pem
 - add *.crt and *.pem to ~/.kube/config
 - create *.crt and *.pem in ~/.kube/iivanov.key|.crt
 
+### Authentication
+
+- local users,pass,userID
+
+### API Groups
+
+- /version
+- /api (got verbs)
+
+- kube proxy is not kubectl proxy
+
+### Roles
+
+$ kubectl api-resources --namespaced=true/false
+
 ### RBAC
 
 - Role (single namespace) and ClusterRole (cluster-wide)
@@ -310,9 +314,7 @@ $ kube-apiserver --enable-admission-plugins=NamespaceLifecycle,...
 $ kubectl -n kubernetes-dashboard get secret
 $ kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-x9nd8
 
-
-
-### Cluster Maintenance
+## Cluster Maintenance
 ### Nodes
 
 $ kubectl get nodes -o wide
@@ -365,6 +367,15 @@ $ kubectl upgrade apply
 5. $ kubeadm upgrade node config --kubelet-version v1.12.0
 6. $ systemctl restart kubelet
 
+### etcd
+
+- used by kubernetes as data backend
+- k/v store
+
+### Raft consensus algorithm
+
+https://raft.github.io
+
 ### Backup and Restore
 
 - resource
@@ -373,11 +384,6 @@ $ kubectl upgrade apply
 https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster
 
 https://www.youtube.com/watch?v=qRPNuT080Hk
-
-
-
-
-
 
 ## Security
 ### Secure Hosts
@@ -407,36 +413,7 @@ $ kubectl create secret docker-registry regcred \
 $ kubectl edit cluster
 $ kubectl get podsecuritypolicy
 
-### etcd
-
-- used by kubernetes as data backend
-- k/v store
-
-### Raft consensus algorithm
-
-https://raft.github.io
-
-### Authentication
-
-- local users,pass,userID
-
-### API Groups
-
-- /version
-- /api (got verbs)
-
-- kube proxy is not kubectl proxy
-
-### Roles
-
-$ kubectl api-resources --namespaced=true/false
-
-
-
-
-
-
-
+## Advanced 
 ### Pod Presets
 
 - inject kubernetes resources like secrets, configmaps, volumes, and envs
