@@ -29,5 +29,3 @@ docker run -p 80:80 -d --mount source=/var/log/,target=/var/log/ \--name filebea
 - usav1svdckt1:/srv/elk
 
 $ docker-compose up elk
-
-

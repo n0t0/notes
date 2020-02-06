@@ -12,11 +12,8 @@ firewall-cmd --zone=public --add-port=9000/tcp --permanent
 
 firewall-cmd --reload
 
-
 ### Minio Client
 
 wget https://dl.min.io/client/mc/release/linux-amd64/mc
 chmod +x mc
 ./mc --help
-
-

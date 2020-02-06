@@ -62,4 +62,3 @@ curl -XPUT -H'Content-Type: application/json' 127.0.0.1:9200/_cluster/settings?p
 "cluster.routing.allocation.enable" : "all"
     }
 }'
-
