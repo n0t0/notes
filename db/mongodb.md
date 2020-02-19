@@ -44,3 +44,10 @@ mongo --port 27017 -u "portal" -p "qxJVLIrOGDSYnoBzcGVv^C" --authenticationDatab
 
 u: iivanov p: s738 h: noss4
 u: portal  p: 22AFM@Hdad2$ h: noss4
+
+
+### MongoDB replica-set
+
+db.createUser({ user: "solumina", pwd: "solumina", roles: [{ role: "readWrite", db: "solumina" }] })
+db.createUser({ user: "solumina_config", pwd: "solumina_config", roles: [{ role: "readWrite", db: "solumina_config" }] })
+db.createUser({ user: "solumina_user", pwd: "solumina_user", roles: [{ role: "readWrite", db: "solumina_user" }] })

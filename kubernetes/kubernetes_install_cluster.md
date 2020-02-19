@@ -127,8 +127,7 @@ backend k8s-api
 $ sudo kubeadm init --control-plane-endpoint "<load_banacer_ip>:6443" --upload-certs
 $ sudo kubeadm init --control-plane-endpoint "10.1.52.139:6443" --upload-certs
 
-
-### flannel netwokr
+### flannel network
 
 $ sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --control-plane-endpoint "10.1.52.148:6443" --upload-certs
 
@@ -190,3 +189,11 @@ $ kubectl delete node <node name>
 
 $ kubeadm reset
 
+### Uninstall 
+
+$ sudo yum install -y kubelet kubeadm kubectl
+$ sudo yum remove -y kubelet kubeadm kubectl
+$ sudo yum install -y kubelet-1.16.3 kubeadm-1.16.3 kubectl-1.16.3
+
+kubeadm join pre-flight 10.10.9.87:6443 --token zrlao5.04km7esh7vb289dh \
+    --discovery-token-ca-cert-hash sha256:5e4b1a9d53585bfe8a24088fb17690546f01f6a2c173b6de5aabb3f7870a66dc
