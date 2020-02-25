@@ -452,8 +452,6 @@ $ kubectl expose pod nginx-resolver --name=nginx-resolver-service --port=80 --ta
 
 $ kubectl get svc
 
-
-
 ### Kubetest - Tests
 
 - e2e: ~1000
