@@ -1,5 +1,7 @@
 ### Linux Commands
 
+$ chsh -s /bin/bash --> change shell
+
 ### Symbolic Links (shortcuts)
 
 $ ln -s prog.1.1 prog 
@@ -111,6 +113,14 @@ $ nproc —> number cpu cores
 $ ssh remote-host:/directory mountpoint
 $ fusermount -u mountpoint
 
-# Replace a String in Multiple Files and Create a Backup Before
+### Replace a String in Multiple Files and Create a Backup Before
 
 $ find /path -type -f exec sed -i.bak 's/string/replacement/g' {} \; 
+
+### Backup 
+
+$ tar -czvf destination/file.tgz    source/ —> creates a file to local directory from a source 
+$ tar -xzvf file.tgz -C /some/local/dir/ —> extracts a file to a local dir (must exists)
+
+$ rsync -avzh —delete ~/docs /Volumes/agent/docs/ —> syncs files and deletes files/folders that exist in the target directory 
+
