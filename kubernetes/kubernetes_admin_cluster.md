@@ -328,6 +328,15 @@ $ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
 
 $ kubectl drain <node> --grace-period=600
 
+### Taints - Node
+
+$ kubectl taint nodes node-name key=value:<taint-effect>
+$ kubectl taint nodes Node1 key=blue:NoSchedule
+kubectl taint nodes master node-role.kubernetes.io/master:NoSchedule- --> remove taints
+
+$ kubectl get nodes
+$ kubectl get <masterNode> -o yaml --> /taint
+
 ### Troubleshooting
 
 $ kube-controller-manager --pod-eviction-timeout=5m0s
