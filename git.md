@@ -58,6 +58,7 @@ git remote add origin <link>
 
 ### Pushing to Remote Repository
 git push -u origin master 
+git push -u origin <local_branch>
 
 ### Pulling to a Local Directory 
 git pull
