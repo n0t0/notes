@@ -175,7 +175,7 @@ sudo kubeadm join 10.1.52.139:6443 --token 97ianr.pp6sojlpgje3y4y4 \
 
 $ kubeadm list token
 $ kubeadm create token 
-$ kubeadm token create --print-joint-command
+$ kubeadm token create --print-join-command
 
 ### Add a Network Addon
 
