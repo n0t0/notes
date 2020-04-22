@@ -332,7 +332,7 @@ $ kubectl drain <node> --grace-period=600
 
 $ kubectl taint nodes node-name key=value:<taint-effect>
 $ kubectl taint nodes Node1 key=blue:NoSchedule
-kubectl taint nodes master node-role.kubernetes.io/master:NoSchedule- --> remove taints
+$ kubectl taint nodes master node-role.kubernetes.io/master:NoSchedule- --> remove taints
 
 $ kubectl get nodes
 $ kubectl get <masterNode> -o yaml --> /taint
