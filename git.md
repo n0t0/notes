@@ -25,6 +25,10 @@ git log —oneline
 git log —oneline —decorate # showing the branch 
 git log -n 3
 git log <filename>
+git log --since=2020-04-06
+git log --until=2020-04-06
+git log --author="<name>"
+git log --grep="init"
 
 git blame -p <file>
 
