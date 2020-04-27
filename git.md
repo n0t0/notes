@@ -19,6 +19,13 @@ git commit -m “Message!”
 git commit -a -m “Message!” 
 git status 
 
+
+### Removing
+
+$ git rm -r --cached <folder> --> remove remote but NOT local
+
+
+
 ### Logging 
 git log 
 git log —oneline
