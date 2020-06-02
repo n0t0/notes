@@ -309,7 +309,7 @@ $ kube-apiserver --enable-admission-plugins=NamespaceLifecycle,...
 - ResourceQuota
 - PodSecurityPolicy
 
-### Getting a Token 
+### Getting a Token
 
 $ kubectl -n kubernetes-dashboard get secret
 $ kubectl -n kubernetes-dashboard describe secrets kubernetes-dashboard-token-x9nd8
@@ -321,6 +321,12 @@ $ kubectl get nodes -o wide
 $ kubectl get pods -o json
 $ kubectl get pods -o=jsonpath='{   .items[0].spec.containers[0].image }'
 $ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
+
+
+### Volume Maintenance
+
+$ kubectl get pv | tail -n+2 | awk '{print $1}' | xargs -I{} kubectl patch pv {} -p '{"metadata":{"finalizers": null}}'
+$ kubectl patch pv mongodb-data-pv03 --patch "$(cat mongodb-patch.yaml)"
 
 ### Node Maintenance
 
@@ -345,7 +351,7 @@ $ kubectl drain node-1
 $ kubectl cordon node-2
 $ kubectl uncordon node-1
 
-### Kubernetes Releases 
+### Kubernetes Releases
 
 - v1.17 -- ~
 - v1.16 -- current

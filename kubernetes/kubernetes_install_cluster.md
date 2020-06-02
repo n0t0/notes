@@ -185,7 +185,7 @@ https://www.weave.works/docs/net/latest/kubernetes/kube-addon/
 ### Tear Down a Cluster
 
 $ kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
-$ kubectl drain usav1svkubt3.ambrygenetics.local --delete-local-data --force --ignore-daemonsets
+$ kubectl drain usav1svkubt7.ambrygenetics.local --delete-local-data --force --ignore-daemonsets
 $ kubectl delete node <node name>
 
 $ kubeadm reset 
