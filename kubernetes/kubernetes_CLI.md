@@ -154,6 +154,9 @@ $ kubectl describe src <service>
 $ kubectl describe svc dashboard-metrics-scraper -n kube-system
 $ kubectl get src
 
+$ kubectl patch svc myservice -p '{"spec": {"ports": [{"nodePort":, 30100, "port": 6379,"targetPort": 6379,"name": "redis-master","protocol": "TCP"}],"type": "NodePort"}}' --> patch service to nodePort
+
+
 ### Labels
 
 - once lables are attached to an object, you can use filters to narrow down result ; this is called Label Selectors 

@@ -17,7 +17,7 @@ $ kubectl get pods
 - Pending
 - Succeeded
 - Failed
-- Unknown 
+- Unknown
 
 ### Pod Condition
 
@@ -37,7 +37,7 @@ $ kubectl get pod <pod> -o yaml
 - Terminating
 - Waiting
 
-### Pod Lifecycle 
+### Pod Lifecycle
 
 - initContainers:
 - licecycle: postStart: :l/r-probes: :preStop
@@ -91,14 +91,14 @@ $ watch n1 kubectl get pods
 
 ### Service Discovery (advanced) with DNS
 
-- /etc/kubernetes/addons - on master node 
+- /etc/kubernetes/addons - on master node
 - to make DNS work, a pod will need a Service definition
 
 $ nslookup www.google.com
 $ dig
 $ host app1-service.default.svc.cluster.local
 
-### Ingress 
+### Ingress
 
 - inbound connection to the cluster
 - IngressController
@@ -124,7 +124,7 @@ web-service --> Hostname
 
 - CNI (Calico, Weave)
 - an overlay network (flannel)
-- rkt 
+- rkt
 - mesos
 - kubernetes - creates container under --> docker run --network=none
 
@@ -158,12 +158,12 @@ $ iplink set <veth-blue> netns <blue>
 
 ### TLS on AWS ELB
 
-- TLS termination 
+- TLS termination
 - annotations
 
-### TLS Certs  
+### TLS Certs
 
-- openssl 
+- openssl
 
 $ kubectl get csr
 $ kubectl certificate approve jane
@@ -222,10 +222,10 @@ $ kubectl describe limits <mylimits> --namespace=<myspace>
 - create virtual cluster within same physical servers
 - logically separates cluster
 - resource name must be unique wihin single namespace
-- can limit resources on a per namespace basis (e.g. marketing team can only 
+- can limit resources on a per namespace basis (e.g. marketing team can only
 use a maximum of 1GiB of memory)
 
-### User Management 
+### User Management
 
 - 2 types
 
@@ -247,7 +247,7 @@ use a maximum of 1GiB of memory)
 $ openssl genrsa -out iivanov.pem 2048
 $ openssl req -new -key iivanov.pem -out iivano-csr.pem -subj "/CN=iivanov/0=myteam/"
 $ sudo openssl x509 -req -in iivanov-csr.pem -CA /var/lib/localkube/certs/ca.crt -CAkey /var/lib/localkube/certs/ca.key -CAcreateserial -out iivanov.crt -days 10000
-$ cat iivanov.crt 
+$ cat iivanov.crt
 $ cat iivnaov.pem
 - add *.crt and *.pem to ~/.kube/config
 - create *.crt and *.pem in ~/.kube/iivanov.key|.crt
@@ -321,7 +321,6 @@ $ kubectl get nodes -o wide
 $ kubectl get pods -o json
 $ kubectl get pods -o=jsonpath='{   .items[0].spec.containers[0].image }'
 $ kubectl get nodes -o=jsonpath='{.items[*].metadatada.name}'
-
 
 ### Volume Maintenance
 
@@ -404,7 +403,7 @@ https://www.youtube.com/watch?v=qRPNuT080Hk
 ### Secure Hosts
 
 - root disabled
-- password based authentication disalbed 
+- password based authentication disalbed
 - ssh key based auth
 
 ### Security Context
@@ -428,7 +427,7 @@ $ kubectl create secret docker-registry regcred \
 $ kubectl edit cluster
 $ kubectl get podsecuritypolicy
 
-## Advanced 
+## Advanced
 ### Pod Presets
 
 - inject kubernetes resources like secrets, configmaps, volumes, and envs
@@ -484,12 +483,12 @@ $ kubectl get svc
 - charts use templates that are typicaly developed by a package maintainer
 
 ```
-$ helm init 
+$ helm init
 $ helm reset
 $ helm install
 $ heml search --> search for a chart
 $ helm list
-$ helm upgrade 
+$ helm upgrade
 $ helm rollback
 ```
 
