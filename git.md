@@ -13,11 +13,11 @@ git help -g
 git init <dir>
 git add . # adding files 
 git checkout — <filename> # cleaning changes to a file
-git reset HEAD <filename> # cleaning added file 
+git reset HEAD <filename> # cleaning added file
 git rm —cached <filename> # fresh repo only
 git commit -m “Message!”
-git commit -a -m “Message!” 
-git status 
+git commit -a -m “Message!”
+git status
 
 
 ### Removing
@@ -59,7 +59,7 @@ git merge <branch_name>
 git branch -d <branch_name>
 
 ### Deleting a Remote Branch
-git push origin --delete "developer.update.configmap" 
+git push origin --delete "developer.update.configmap"
 
 ### Checking Remote Repositories 
 git remote -v 
