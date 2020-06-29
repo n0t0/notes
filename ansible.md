@@ -93,6 +93,9 @@ $ ansible-playbook apache.yaml
 $ ansible-playbook playbook-name.retry --> contains list of hosts where it failed use with --limit
 $ ansible-playbook --ask-become-pass or -K --> ask for a password
 
+$ ansible-playbook -i production site.yml --tags ntp --> configure NTP on everything
+$ ansible-playbook -i production webservers.yml --tags ntp --list-tasks --> list NTP tasks
+
 ### An Ansible Play
 
 - hosts
@@ -145,9 +148,9 @@ $ ansible-playbook facts.yaml
 
 ### Roles
 
-- While it is possible to write a playbook in one file as we’ve done throughout this workshop, eventually you’ll want to reuse files and start to organize things.
+- While it is possible to write a playbook in one file, eventually you’ll want to reuse files and start to organize things.
 
-- Ansible Roles are the way we do this. When you create a role, you deconstruct your playbook into parts and those parts sit in a directory structure. 
+- Ansible Roles are the way we do this. When you create a role, you deconstruct your playbook into parts and those parts sit in a directory structure.
 
 $ ansible-galaxy
 
