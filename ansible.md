@@ -94,7 +94,10 @@ $ ansible-playbook playbook-name.retry --> contains list of hosts where it faile
 $ ansible-playbook --ask-become-pass or -K --> ask for a password
 
 $ ansible-playbook -i production site.yml --tags ntp --> configure NTP on everything
+$ ansible-playbook -i production site.yml -t ntp --> configure NTP on everything
+$ ansible-playbook -i production site.yml --tags ntp,secondTag --> run 2 tags
 $ ansible-playbook -i production webservers.yml --tags ntp --list-tasks --> list NTP tasks
+$ ansible-playbook -i production webservers.yml --skip-tags ntp --> skip tags
 
 ### An Ansible Play
 
