@@ -59,7 +59,11 @@ $ ls -la ~.ansible.cfg
 
 $ cat /home/student<X>/lab_inventory/hosts
 
+$ ansible-inventory -y --list  --> current inventory
+$ ansible-inventory -i inventoru --list  --> current inventory
+
 ### Ping a Group
+
 
 $ ansible web -m ping
 $ ansible web -m command -a "uptime"
@@ -181,3 +185,12 @@ ssh student31@student31.0329.rhdemo.io
 ### Ansible Tower Workflow
 
 - Workflows were introduced as a major new feature in Ansible Tower 3.1. The basic idea of a workflow is to link multiple Job Templates together. They may or may not share inventory, Playbooks or even permissions. The links can be conditional
+
+### Ansible Vault
+
+$ ansible-vault decyprt <file>
+$ ansible-vault encrypt <file>
+$ ansible-vault encrypt --vault-id label@prompt <file>
+$ ansible-vault view <file>
+$ ansible-vault edit <file>
+$ ansible-vault encrypt_string --vailt-id prod@prompt 'new_var: new-value'
