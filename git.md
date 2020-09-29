@@ -20,7 +20,6 @@ git commit -a -m “Message!”
 git status
 
 ### Removing
-
 $ git rm -r --cached <folder> --> remove remote but NOT local
 
 ### Logging
@@ -52,6 +51,8 @@ git checkout <branch_name>
 
 ### Merging Branches
 git merge <branch_name>
+git checkout master
+git checkout merge <feature_branch> --> merges feature branch into master
 
 ### Deleting a Local Branch
 git branch -d <branch_name>
@@ -83,5 +84,4 @@ git diff origin/master
 git show-refs --tags -d
 
 ### Submodules
-
 $ git submodule add https://github.com/chaconinc/DbConnector
