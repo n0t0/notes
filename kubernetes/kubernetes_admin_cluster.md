@@ -67,7 +67,7 @@ $ watch n1 kubectl get pods
 - volumes within pod-definition
 - persistent volumes (PVs)
 
-- stateless 
+- stateless
 - statefull
 
 - NFS
@@ -454,6 +454,7 @@ $ kubectl run nginx-deploy --image=nginx:1.16 --replicas=1 --record
 $ kubectl get deployments .
 $ kubectl rollout history deployment nginx-deploy
 $ kubectl set image deployment/nginx-deploy nginx-deploy=nginx:1.17 --record
+$ kubectl rollout restart deployment/<deployment>
 
 
 $ kubectl api-version | grep certif
