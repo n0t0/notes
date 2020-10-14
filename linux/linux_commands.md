@@ -50,7 +50,7 @@ $ alias keyword=‘ls -la’
 
 ### List Mounted Drives 
 
-$ lsblk 
+$ lsblk
 $ df
 
 ### Check Disk for a Data Before Mounting 
