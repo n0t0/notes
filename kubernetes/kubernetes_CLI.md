@@ -202,7 +202,7 @@ $ kubectl label node <nodeID> env=dev
 ```
 $ echo -n "root" > ./username.txt
 $ echo -n "password" > ./password.txt
-$ kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt 
+$ kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
 ```
 
 $ kubectl create secret generic ssl-certificate --from-file=ssh-privatekey=~/.ssh/id_rsa --ssl-cert-=ssl-cert=mysslcert.crt
@@ -221,14 +221,14 @@ $ kubectl create secret generic \
 
 - declerative
 
-$ kubectl create -f 
+$ kubectl create -f
 
 - Encode Secrets and Decode
 
 $ echo -n 'passwrd' | base64
 $ echo -n 'bXafmjagh2D=' | base64 --decode
 
-- List Secrets 
+- List Secrets
 
 $ kubectl get secrets
 $ kubectl get secret <secret-name> -o yaml
@@ -240,7 +240,7 @@ $ kubectl describe secret
 - inject configuration settings into containers without changing the container itself
 
 $ kubectl create configmap app-config --from-file=app.properties
-$ kubectl get configmap 
+$ kubectl get configmap
 $ kubectl create configmap \
     <config-name> --from-literal=<key>=<value>
                   --from-literal=<key>=<value>
