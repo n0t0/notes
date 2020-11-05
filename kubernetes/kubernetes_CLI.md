@@ -41,12 +41,12 @@ $ kubectl run --restart=Never --image=busybox static-busybox --dry-run -o yaml -
 
 ### List Pods from a Namepsace
 
-$ kubectl get namespace 
+$ kubectl get namespace
 $ kubectl get pods --namespace=<NS>
 
 ### Edit a Pod
 
-$ kubectl get namespace 
+$ kubectl get namespace
 $ kubectl get pods --namespace=<NS>
 $ kubectl edit pod <redis>
 $ kubectl get pod webapp -o yaml > my-new-pod.yaml --> extract a Pod definition
@@ -75,13 +75,13 @@ $ kubectl exec <pod> -i -t /bin/bash
 ### Scaling Pods
 
 - stateless
-- statefull 
+- statefull
 
 $ kubectl delete pod helloworld-controller-mw85
 
 - ReplicationController is recreating a new Pod
 
-$ kubectl scale --replicas=4 -f helloworld-replica-controller.yaml 
+$ kubectl scale --replicas=4 -f helloworld-replica-controller.yaml
 $ kubectl get rc
 $ kubectl scale --replicas=1 rc/<replicationController>
 
@@ -89,7 +89,7 @@ $ kubectl scale --replicas=1 rc/<replicationController>
 
 - ReplicationController is recreating a new Pod
 
-$ kubectl scale --replicas=4 -f helloworld-replica-controller.yaml 
+$ kubectl scale --replicas=4 -f helloworld-replica-controller.yaml
 $ kubectl get rc
 $ kubectl scale --replicas=1 rc/<replicationController>
 $ kubectl replace -f replicaset-definition.yml
@@ -123,7 +123,7 @@ $ kubectl autoscale deployment/my-nginx --min=1 --max=3
 $ kubectl expose deployment webapp --type=NodePort --port=8080 --name=webapp-service --dry-run -o yaml > webapp-service.yaml (edit .yaml file NodePort)
 $ kubectl run blue --image=nginx --replicas=6 --> create a deployment with 6 replicas
 
-$ kubectl get deployments 
+$ kubectl get deployments
 $ kubectl get rs --> because deployments use replica sets
 
 ### Rollout Deployments
@@ -188,9 +188,9 @@ $ kubectl label node <nodeID> env=dev
     hardware: high-spect
 
 - node and pod affnity
-- weight measured 
+- weight measured
 
-- measured in `weight` 
+- measured in `weight`
 
 ### Secrets
 
@@ -250,13 +250,13 @@ $ kubectl create -f configMap.yaml
 $ kubectl get configmaps
 $ kubectl describe configmaps
 
-### DaemonSets 
+### DaemonSets
 
 - ensure that every single pod is running on every single node
 - same as swarm replication_mode: Global
 - for monitoring, logging, networking, proxy
 
-$ kubectl get daemonsets --all-namespaces --> list all 
+$ kubectl get daemonsets --all-namespaces --> list all
 $ kubectl describe daemonset kube-proxy --namespace=kube-system
 
 ### WebUI
