@@ -10,11 +10,12 @@ git help -a
 git help -g
 
 ### Initialize a project
-git init <dir>
-git add . # adding files
-git checkout — <filename> # cleaning changes to a file
-git reset HEAD <filename> # cleaning added file
-git rm —cached <filename> # fresh repo only
+git init --> in current directory
+git init </path/to/dir> --> init project
+git add . --> adding files
+git checkout — <filename> --> cleaning changes to a file
+git reset HEAD <filename> --> cleaning added file
+git rm —cached <filename> --> fresh repo only
 git commit -m “Message!”
 git commit -a -m “Message!”
 git status
