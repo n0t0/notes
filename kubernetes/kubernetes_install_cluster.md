@@ -11,7 +11,7 @@
 
 $ sudo swapoff -a
 
-### Install Docker 
+### Install Docker
 
 - https://docs.docker.com/install/linux/docker-ce/centos/
 
@@ -52,7 +52,7 @@ $ sudo firewall-cmd --permanent --add-port=10250/tcp
 $ sudo firewall-cmd --permanent --add-port=30000-32767/tcp
 
 
-3. install kubelet, kubeadm, kubectl 
+3. install kubelet, kubeadm, kubectl
 
 ```
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -88,10 +88,10 @@ $ sudo sysctl --system
 
 KUBELET_EXTRA_ARGS=--cgroup-driver=<value>
 
-6. enable and start 
+6. enable and start
 
 $ sudo systemctl enable kubelet
-$ sudo systemctl start kubelet 
+$ sudo systemctl start kubelet
 
 ### Configure a Load Balancer
 
@@ -122,7 +122,7 @@ backend k8s-api
     server apiserver3 <server_ip>:6443 check
 
 
-### Init 
+### Init
 
 $ sudo kubeadm init --control-plane-endpoint "<load_banacer_ip>:6443" --upload-certs
 $ sudo kubeadm init --control-plane-endpoint "10.1.52.139:6443" --upload-certs
@@ -188,14 +188,14 @@ $ kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
 $ kubectl drain usav1svkubt7.ambrygenetics.local --delete-local-data --force --ignore-daemonsets
 $ kubectl delete node <node name>
 
-$ kubeadm reset 
+$ kubeadm reset
 
-### Schedulable 
+### Schedulable
 
-$ kubeadm manage-nodes <node> --schedulable 
+$ kubeadm manage-nodes <node> --schedulable
 $ kubectl uncordon <node>
 
-### Uninstall 
+### Uninstall
 
 $ sudo yum install -y kubelet kubeadm kubectl
 $ sudo yum remove -y kubelet kubeadm kubectl
