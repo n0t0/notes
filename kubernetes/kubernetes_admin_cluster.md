@@ -333,6 +333,20 @@ $ kubectl patch pv mongodb-data-pv03 --patch "$(cat mongodb-patch.yaml)"
 
 $ kubectl drain <node> --grace-period=600
 
+### List and Create token (24hrs TTL)
+
+$ kubeadm list token
+$ kubeadm create token
+$ kubeadm token create --print-join-command
+
+### Tear Down a Cluster
+
+$ kubectl drain <node name> --delete-local-data --force --ignore-daemonsets
+$ kubectl drain usav1svkubt7.ambrygenetics.local --delete-local-data --force --ignore-daemonsets
+$ kubectl delete node <node name>
+
+$ kubeadm reset
+
 ### Taints - Node
 
 $ kubectl taint nodes node-name key=value:<taint-effect>
