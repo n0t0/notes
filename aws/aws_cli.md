@@ -28,7 +28,6 @@ aws ecs describe-clusters --clusters itdev-qa
 
 aws ecs describe-container-instances --cluster itdev-test --container-instances arn:aws:ecs:us-west-2:696327054069:container-instance/af6dced1-f54e-4540-88b1-6409ab5f8c20
 
-
 ### ECS - Task
 
 aws ecs register-task-definition --cli-input-json file://web-task-definition.json
