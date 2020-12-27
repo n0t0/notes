@@ -70,7 +70,7 @@ curl -XPUT -d '{​​​​​​​​"index":{​​​​​​​​"number
 
 ### Delete Shards
 
-for i in `curl  http://umgsvrmesln01:30040/_cat/shards | grep UNASSIGNED | awk '{​​​​​​​​print $1}​​​​​​​​'`; do curl -XPUT -d '{​​​​​​​​"index":{​​​​​​​​"number_of_replicas":1}​​​​​​​​}​​​​​​​​' -H "Content-Type:application/json"  http://umgsvrmesln01:30040/$i/_settings; done
+for i in `curl  http://sandbox.ibaset.com:30040/_cat/shards | grep UNASSIGNED | awk '{​​​​​​​​print $1}​​​​​​​​'`; do curl -XPUT -d '{​​​​​​​​"index":{​​​​​​​​"number_of_replicas":1}​​​​​​​​}​​​​​​​​' -H "Content-Type:application/json"  http://sandbox.ibaset.com:30040/$i/_settings; done
 
 
-for i in `curl localhost:9200/_cat/shards | grep UNASSIGNED | awk '{print $1}'`; do curl -XPUT -d '{"index":{"number_of_replicas":1}}' -H "Content-Type:application/json" localhost:9200/$i/_settings; done
+for i in `curl sandbox.ibaset.com:9200/_cat/shards | grep UNASSIGNED | awk '{print $1}'`; do curl -XPUT -d '{"index":{"number_of_replicas":1}}' -H "Content-Type:application/json" sandbox.ibaset.com::9200/$i/_settings; done
