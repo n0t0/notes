@@ -145,23 +145,29 @@ echo $password
 
 ### Aritmethic
 
+```
 echo " $((2+3)) "
 echo " SUM $(( number1 + number2 )) "
 echo " PRODUCT $(( number1 * number2 )) "
 echo " DIVISION $(( number1 - number2 )) "
 echo " REMINDER $(( 10 % 3 )) "
 echo " POWER $(( 3**2 )) "
+```
 
 - increase a variable
+```
 number1=$(( number1 + 1))
 echo " $(( number1++ ))
+```
 
 - short way of operating on a variable
+```
 num=10
 num=$(( num + 3 ))
 echo "ADD $(( num+=3 ))
 echo "SUBSTRACT $(( num-=6 ))
 echo "MULTI $(( num*=10 ))
+```
 
 ### Arithmetic Conditions
 
@@ -175,5 +181,5 @@ echo "MULTI $(( num*=10 ))
 
 ### Exit Status
 
-0 - good
-1+ - error
+- 0 - good
+- 1+ - error
