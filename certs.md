@@ -20,7 +20,7 @@ kubectl config set-credentials edward --client-certificate=edward.crt --client-k
 kubectl config set-context edward --cluster=kubernetes.newtech.academy --user edward
 ```
 
-### 
+### Generate a Cert
 
 $ openssl genrsa -aes256 -out private.pem
 $ openssl rsa -in private.pem -outfrom PEM -pubout -out putlic.pem
