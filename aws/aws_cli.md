@@ -38,7 +38,6 @@ aws ecs register-task-definition --generate-cli-skeleton
 
 aws ecs run-task --cluster itdev-test --task-definition web --count 1
 
-
 ### ECS - Service
 
 aws ecs create-service --cluster itdev-test --service-name web --task-definition web --desired-count 1
@@ -49,7 +48,6 @@ aws ecs create-service --cluster itdev-test --service-name web --task-definition
 aws ecs delete-service --cluster itdev-test --service web
 
 aws ecs create-service --generate-cli-skelenot
-
 
 aws ecs delete-cluster --cluster <cluster_name>
 
