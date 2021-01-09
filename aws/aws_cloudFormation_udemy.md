@@ -1,16 +1,16 @@
-### Template Options 
+### Template Options
 
 - tags
 - permissions
-- notification optios 
+- notification optios
 - timeouts
-- rollback on failure 
-- stack policy 
+- rollback on failure
+- stack policy
 
-### CF Building Block 
-#### Templates Components 
+### CF Building Block
+#### Templates Components
 
-- resources --> AWS resouces defined in the template 
+- resources --> AWS resouces defined in the template
 - parameters --> dynamic input for the template 
 - mappings --> static variables for a template
 - outputs --> reference to what have been created 
