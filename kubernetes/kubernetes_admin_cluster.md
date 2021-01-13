@@ -76,7 +76,7 @@ $ watch n1 kubectl get pods
 
 ### Services
 
-- when using Deployments, when updaing the image version, pods are terminated and new pods take the place of older pods 
+- when using Deployments, when updaing the image version, pods are terminated and new pods take the place of older pods
 - that's why Pods hould never be accesssed directly, but always throught a Service
 - a Service is a logical bridge between the `mortal` pods and other services or end-users
 
