@@ -5,7 +5,7 @@ log_format combined_plus_rt '$remote_addr - $remote_user [$time_local]'
                                  '"$http_referer""$http_user_agent" $request_time' ;
 ```
 
-### Location Blocks - Matching Requests 
+### Location Blocks - Matching Requests
 ```
 location /greet {
 	return 200 ‘return a string match’;
@@ -41,36 +41,36 @@ location /downloads {
 }
 ```
 
-### Inheritance & Directives Types 
+### Inheritance & Directives Types
 
 Standart Directive
 
-gzip on; —> global unless turned off in location downwards 
+gzip on; —> global unless turned off in location downwards
 
-Array Directive —> defined multiple times with diff values 
+Array Directive —> defined multiple times with diff values
 
-Action Directive —> does action like return or rewrite 
+Action Directive —> does action like return or rewrite
 
 try_files $uri =404;—> look for $uri variable first or return error
 
-### Configuring a Backend 
+### Configuring a Backend
 ```
-sudo yum install php5-fpm 
+sudo yum install php5-fpm
 sudo yum install php5-mysql
 sudo yum install php5
 sudo yum install php5-cgi
 ```
-- /etc/php5/fpm/www.conf —> make php and nginx listen to the same port 
+- /etc/php5/fpm/www.conf —> make php and nginx listen to the same port
 
-### Configuring Nginx Workers 
+### Configuring Nginx Workers
 
-$ ulimit -n —> use that number for worker_connections 1024; 
+$ ulimit -n —> use that number for worker_connections 1024;
 
-- add_header X-Frame-Options SAMEORIGIN; 
+- add_header X-Frame-Options SAMEORIGIN;
 
-### Dynamic Modules 
+### Dynamic Modules
 
-### Expires Headers 
+### Expires Headers
 
 ### Gzip
 ```
@@ -82,5 +82,5 @@ gzip_types text/plain;
 gzip_types text/css;
 gzip_types text/javascript;
 
-gzip_disalbe “msie6”; —> Microsft Internet Explorer 6 
+gzip_disalbe “msie6”; —> Microsft Internet Explorer 6
 ```
