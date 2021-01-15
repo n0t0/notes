@@ -17,8 +17,8 @@
 1. VPC
 -   2 public subnets
 -   2 private busnets
--   2 route trables 
--   1 internetagateway 
+-   2 route trables
+-   1 internetagateway
 2. ECS cluster
 3. ECS services (2)
 4. IAM roles (4)
@@ -33,7 +33,7 @@
 #### + CD
 
 12. AWS CodePipelihne
-13. AWS CodeBuild project 
+13. AWS CodeBuild project
 14. S3 buckets
 15. CMK KMS keys
 16. x-account policies
