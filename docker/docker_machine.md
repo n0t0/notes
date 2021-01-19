@@ -10,7 +10,7 @@ $ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 
 $ docker-machine version
 
-### Create a Host 
+### Create a Host
 
 $ docker-machine --debug create --driver generic \
     --engine-storage-driver=devicemapper \
@@ -20,7 +20,7 @@ $ docker-machine --debug create --driver generic \
     --generic-ssh-key ~/.ssh/id_rsa  \
     <hostname>
 
-### Update Sudoers 
+### Update Sudoers
 
 $ sudo visudo
 
@@ -40,14 +40,14 @@ docker-machine env <node>
 eval $(docker-machine env <node>)
 eval $(docker-machine env -u) --> undo
 
-### Swarm 
+### Swarm
 
 ### 01
 
 - follow steps to create a host/s
 
 $ docker-machine ssh <hostname> --> manager
-$ docker swarm init --advertise-addr <hostname_IP> 
+$ docker swarm init --advertise-addr <hostname_IP>
 
 $ docker-machine ssh <hostname> --> worker
 $ docker swarm join --token <token> <manager_hostname_IP:2377>
@@ -57,7 +57,7 @@ $ docker swarm join --token <token> <manager_hostname_IP:2377>
 $ docker-machine create -d generic \
     --swarm \
     --swarm-master \
-    --swarm-addr <hostnameIP> 
+    --swarm-addr <hostnameIP>
     --swarm-discovery token://<token> \
     --swarm-strategy binpack \
     --swarm-opt heartbeat=5s \
