@@ -2,9 +2,9 @@
 
 ### Initialize Terraform
 
-$ terraform init 
+$ terraform init
 
-### Start and Destroy and instance 
+### Start and Destroy and instance
 
 $ terraform apply --> execute
 
@@ -12,7 +12,7 @@ $ terraform destroy
 
 ### Plan
 
-$ terraform plan --> test/list what is going to be applid 
+$ terraform plan --> test/list what is going to be applid
 $ terraform plan -out changes.terraform
 $ terraform apply changes.terafform --> apply those changes only
 
@@ -22,7 +22,7 @@ $ terraform plan -out <file> ; terraform apply <file> ; rm <file>
 
 - vars.tf
 
-### Output 
+### Output
 
 - attributes
 
