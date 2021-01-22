@@ -1,4 +1,4 @@
-### Getting Started 
+### Getting Started
 
 sudo nvidia-docker run -it --rm -v /tmp/projects/tensor:/projects/tensor nvcr.io/nvidia/tensorflow:18.03-py3
 
@@ -22,4 +22,4 @@ Hello, TensorFlow!
 $ docker run -d \
 --name TensorFlow \
 --mount source=tensorflow,target=/app \
-nvcr.io/nvidia/tensorflow:18.04-py3 --> run tensorflow and create a volume 
+nvcr.io/nvidia/tensorflow:18.04-py3 --> run tensorflow and create a volume
