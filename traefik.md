@@ -61,5 +61,5 @@ docker service update \
 iivanov@usav1svdckt1 13:48:24 /srv/traefik$ export USERNAME=admin                                                    │
 iivanov@usav1svdckt1 13:50:04 /srv/traefik$ export PASSWORD=parola                                                   │
 iivanov@usav1svdckt1 13:50:12 /srv/traefik$ export HASHED_PASSWORD=$(openssl passwd -apr1 $PASSWORD)                 │
-iivanov@usav1svdckt1 13:50:29 /srv/traefik$ echo $HASHED_PASSWORD                 
+iivanov@usav1svdckt1 13:50:29 /srv/traefik$ echo $HASHED_PASSWORD
 $apr1$yXtBaBrj$Rl7HnAUuO852hzRpXhpCJ/
