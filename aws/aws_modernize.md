@@ -4,27 +4,27 @@
 
 experiment --> feedback --> ideas --> experiment --> feedback --> ideas --> exp.. (innovation wheel)
 
-Automate and Abstract 
+Automate and Abstract
 
 ### Benefits of containers
 
 1. defined as code
-2. easier to manage applications 
-3. standardized packaging 
+2. easier to manage applications
+3. standardized packaging
 
 ### Right Foundation to Streamline Application Lifecycle
 
-1. split tasks 
-2. independent scaling 
+1. split tasks
+2. independent scaling
 
-### Monitoring to Optimize End User Experience 
+### Monitoring to Optimize End User Experience
 
 1. metrics, logs, and traces
 2. real time metrics
 
 ### CI/CD
 
-5x 
+5x
 
 ### Security and Compliance Across the Entire App Lifecycle
 
@@ -41,13 +41,13 @@ Automate and Abstract
 
 #### Suse CaaS
 
-### Kubernetes 
+### Kubernetes
 
 - lightweight containers instead of 1000 VMs
 - fraction of the memory footprint
 
-### Modular Kubernetes Solutions Architecture 
+### Modular Kubernetes Solutions Architecture
 
 ### SUSE + AWS
 
-- modernize application delivery and improve release management 
+- modernize application delivery and improve release management
