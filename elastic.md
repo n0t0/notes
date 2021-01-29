@@ -63,14 +63,10 @@ curl -XPUT -H'Content-Type: application/json' 127.0.0.1:9200/_cluster/settings?p
     }
 }'
 
-
 ### Find UNASSIGNED Shards
 
-curl -XPUT -d '{​​​​​​​​"index":{​​​​​​​​"number_of_replicas":1}​​​​​​​​}​​​​​​​​' -H "Content-Type:application/json"  http://umgsvrmesln01:30040/zipkin:span-2020-10-08/_settings
+curl -XPUT -d '{​​​​​​​​"index":{​​​​​​​​"number_of_replicas":1}​​​​​​​​}​​​​​​​​' -H "Content-Type:application/json"  http://sandbox.ibaset.com:30040/zipkin:span-2020-10-08/_settings?pretty
 
 ### Delete Shards
 
-for i in `curl  http://sandbox.ibaset.com:30040/_cat/shards | grep UNASSIGNED | awk '{​​​​​​​​print $1}​​​​​​​​'`; do curl -XPUT -d '{​​​​​​​​"index":{​​​​​​​​"number_of_replicas":1}​​​​​​​​}​​​​​​​​' -H "Content-Type:application/json"  http://sandbox.ibaset.com:30040/$i/_settings; done
-
-
-for i in `curl sandbox.ibaset.com:9200/_cat/shards | grep UNASSIGNED | awk '{print $1}'`; do curl -XPUT -d '{"index":{"number_of_replicas":1}}' -H "Content-Type:application/json" sandbox.ibaset.com::9200/$i/_settings; done
+for i in `curl sandbox.ibaset.com:30040/_cat/shards | grep UNASSIGNED | awk '{print $1}'`; do curl -XPUT -d '{"index":{"number_of_replicas":1}}' -H "Content-Type:application/json" sandbox.ibaset.com:30040/$i/_settings; done
