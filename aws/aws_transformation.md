@@ -5,7 +5,7 @@ Slow delivery cycles -- Deliver fast
 -- Collaboration across the enterprise
 -- Focus on customer experience
 -- Nimbleness to deal with change
--- Constant innovation 
+-- Constant innovation
 
 ### Innovation in the DNA
 
@@ -13,10 +13,10 @@ unblock innovation
 
 ### Change is Hard
 
-- establish processes 
+- establish processes
 
 -- organize as independent empowered teams
---- two pizza teams 
+--- two pizza teams
 ( decompose to primitive problems, small startup, faster decision making )
 diversity of thought ( from different school too )
 
@@ -30,7 +30,7 @@ diversity of thought ( from different school too )
 
 - amazon -- what would you buy
 - harry potter -- what would you do
-- student -- how would you spend your money 
+- student -- how would you spend your money
 
 
 ### Freedom to Inovate
@@ -77,7 +77,7 @@ what does the customer experience look like
 
 - on way door, not two way door
 
-- disagree and commit 
+- disagree and commit
 
 
 ### 20th Centry Fox
