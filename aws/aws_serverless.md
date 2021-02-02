@@ -4,18 +4,18 @@
 4. Lambda SErvice - AWS managed
 3. Execution environment
 2. Languange runtime
-1. Your functiton 
+1. Your functiton
 
 ### Anatomy of Lambda Func
 
-1. Handler () function 
+1. Handler () function
 2. Event object
 3. Context object
 
 ### Function Lifecycle - worker host
 
-1. Download your code 
-2. Start code 
+1. Download your code
+2. Start code
 
 ### Measuring with AWS X-Ray
 
@@ -27,7 +27,7 @@
 
 ### Cold Start
 
-- service identified if warm execution is available 
+- service identified if warm execution is available
 
 - you cannot target warm environment
 - pinging functions to keep them warm is limited
@@ -47,7 +47,7 @@
 
 ### Memory Usage and Profiling
 
-1. more ram can be cheaper 
+1. more ram can be cheaper
 2. aws-lambda-power-tuning
 
 ### Optimization Best Practices
@@ -59,7 +59,7 @@
 4. avoid idle/sleep - delegate to Step Functions
 5. transform, not transport - minimize data transfer (S3 Select, advanced filtering, eventBridge input tranformer)
 6. triger configuration (S3 prefix, SNS filter)
-7. keep-alive 
+7. keep-alive
 
 ### Amazon RDS Proxy
 
