@@ -159,7 +159,7 @@ $ kubectl patch svc myservice -p '{"spec": {"ports": [{"nodePort":, 30100, "port
 
 ### Labels
 
-- once lables are attached to an object, you can use filters to narrow down result ; this is called Label Selectors 
+- once lables are attached to an object, you can use filters to narrow down result ; this is called Label Selectors
 - using Label Selectors you can use matching expressions to match labels
 - node labels, once nodes are labeled you can use label selectors to let pods only run on specific nodes
 - tag the node, add a nodeSelector to your pod configuration
