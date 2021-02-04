@@ -9,17 +9,17 @@ sample_kits   ksluHFL#I$Yhf@
 
 mongo -U <user> -P <pass> --host usav1svNOSp1 --port 28017 admin
 
-### Add User 
+### Add User
 
 db.createUser({ user: "user", pwd: "zLa@&F434orR", roles: [{role: "dbAdmin", db: "sessions" }]})
 
 db.createUser({ user: "sample_kits", pwd: "KjFA@dasd^bm", roles: [{role: "application", db: "admin" }]})
 
-### Grant Roles 
+### Grant Roles
 
 db.grantRolesToUser( "user", [ {role: "developer", db: "query_tool" } ], { <writeConcern> } )
 
-### Update user 
+### Update user
 
 db.updateUser( "user", { roles : [{ role: "developer", db: "admin" }], pwd: "    ",})
 
