@@ -1,15 +1,15 @@
-### Login 
+### Login
 
 mysql -u <user> -p -h usav1svhaps10
 
-### Select 
+### Select
 
 SELECT * FROM bio_tools.case_workflow_type_automation_rule WHERE panel_code = 9570;
 
-### Delete 
+### Delete
 
 DELETE FROM bio_tools.case_workflow_type_automation_rule WHERE panel_code = 9570;
 
-### Change Pass 
+### Change Pass
 
 update user set authentication_string=PASSWORD('d@t@b4s3') where User='iivanov';
