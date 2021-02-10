@@ -9,7 +9,7 @@ sudo postgresql-setup initdb
 
 #### Update File (replace both lines 'ident' with 'md5')
 
-sudo vi /var/lib/pgsql/data/pg_hba.conf 
+sudo vi /var/lib/pgsql/data/pg_hba.conf
 
 host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
@@ -28,16 +28,16 @@ drop database <database> --> sql
 
 \l --> list databases
 
-### Tables 
+### Tables
 
-\d --> list tables 
+\d --> list tables
 \dt --> list just tables
 
-### Users and Roles 
+### Users and Roles
 
-createuser --> shell command same as CREATE USER <user>; 
-\du --> list users 
-\password --> change password 
+createuser --> shell command same as CREATE USER <user>;
+\du --> list users
+\password --> change password
 
 hidden_hippo
 h!pP()
@@ -51,7 +51,7 @@ psql -U <user> -d <database> -h <host> -W
 
 ### Misc
 
-psql 
+psql
 postgres=# SHOW config_file;
 
 
@@ -63,7 +63,7 @@ revoke create on schema public from public;
 revoke create on schema public from <user>;
 
 
-### Schemas 
+### Schemas
 
 CREATE SCHEMA IF NOT EXISTS <schema> AUTHORIZATION <user>;
 
