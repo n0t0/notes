@@ -12,26 +12,26 @@ Of course, it always takes more time. If you work in a bigger team, such situati
 
 - 12 factor -
 
-### Getting Started 
+### Getting Started
 
-- image: an executable package 
-- container: a runtime instance of an image 
+- image: an executable package
+- container: a runtime instance of an image
 
 ### Containers vs Virtual Machines
 
-- container shares the kernel of the host with containers 
+- container shares the kernel of the host with containers
 - VM runs a full-blown 'guest' OS with virtual acess to host resources
 
 ### Linux Distribution
 
-- docker is kernel and storage driver dependent 
+- docker is kernel and storage driver dependent
 
-## Containers 
+## Containers
 
 ### Dockerfile
 
-- Dockerfile defines what goes on in the env inside the container 
-- Dockerfile doesn't have to be inside the directory it can be passed with -f when building the image 
+- Dockerfile defines what goes on in the env inside the container
+- Dockerfile doesn't have to be inside the directory it can be passed with -f when building the image
 - same for other context data
 
 ### requirements.txt 
