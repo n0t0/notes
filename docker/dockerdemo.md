@@ -34,15 +34,15 @@ Of course, it always takes more time. If you work in a bigger team, such situati
 - Dockerfile doesn't have to be inside the directory it can be passed with -f when building the image
 - same for other context data
 
-### requirements.txt 
+### requirements.txt
 
-- requirenments.txt and app.py go in directory with Dockerfile 
+- requirenments.txt and app.py go in directory with Dockerfile
 
-#### Build Custom Image 
+#### Build Custom Image
 
 - Dockerfile
 
-FROM --> base OS layer 
+FROM --> base OS layer
 
 $ docker build -t <image:tag> .
 $ docker build -f </path/to/App.Dockerfile> -t <image:tag> .
