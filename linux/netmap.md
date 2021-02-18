@@ -2,37 +2,37 @@
 
 ### Scanning for SMB vulnerabilities (server message block)
 
-$ nmap —script [scriptname] -p[port][host] 
+$ nmap —script [scriptname] -p[port][host]
 $ nmap -script=smb-vuln-ms17-010.nse [host-range]
 
 $ nmap —script smb-os-discovery.nse —script-args=unsafe=1 -p 445 [host]
 
 $ nmap -p 445 -script=smb-vuln-ms17-010.nse [host-range]
 
-### Scanning for Open Ports 
+### Scanning for Open Ports
 
 $ nmap -sP 192.168.0.0-100 —> ping scan for live hosts
-$ nmap -sS [IP address]-O —> SYN scan OS detection 
+$ nmap -sS [IP address]-O —> SYN scan OS detection
 
-$ nmap -sV 192.168.0.1 -A —> port scan 
-$ nmap -sV 192.168.0.1 -A -v —> verbose port scan  
+$ nmap -sV 192.168.0.1 -A —> port scan
+$ nmap -sV 192.168.0.1 -A -v —> verbose port scan
 
-$ sudo nmap -O remote_host —> scan OS system 
-$ sudo nmap -PN remote_host 
-$ sudo nmap -PN xxx.xxx.xxx.xxx-xxx —> scan multiple hosts 
-$ sudo nmap -sP network_addr_range —> scan available services 
+$ sudo nmap -O remote_host —> scan OS system
+$ sudo nmap -PN remote_host
+$ sudo nmap -PN xxx.xxx.xxx.xxx-xxx —> scan multiple hosts
+$ sudo nmap -sP network_addr_range —> scan available services
 
-$ sudo nmap -n remote_host —> no reverse DNS scan 
-$ sudo nmap -p port_number remote_host —> scan specific port 
+$ sudo nmap -n remote_host —> no reverse DNS scan
+$ sudo nmap -p port_number remote_host —> scan specific port
 
-$ sudo nmap -sT remote_host —> scan for TCP connections 
-$ sudo nmap -sU remote_host —> scan for UDP connections 
+$ sudo nmap -sT remote_host —> scan for TCP connections
+$ sudo nmap -sU remote_host —> scan for UDP connections
 
-$ sudo nmap -n -PN -sT -sU -p remote_host —> scan every open TCP and UDP port 
+$ sudo nmap -n -PN -sT -sU -p remote_host —> scan every open TCP and UDP port
 
-$ sudo nmap -PN -p port_number -sN remote_host 
+$ sudo nmap -PN -p port_number -sN remote_host
 
-$ sudo nmap -PN -p port_number -sV remote_host —> scan services and their versions 
+$ sudo nmap -PN -p port_number -sV remote_host —> scan services and their versions
 
 ### Detecting Live Hosts 
 
