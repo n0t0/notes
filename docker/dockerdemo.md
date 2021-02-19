@@ -47,18 +47,18 @@ FROM --> base OS layer
 $ docker build -t <image:tag> .
 $ docker build -f </path/to/App.Dockerfile> -t <image:tag> .
 
-- images are immutable 
-- container appears to be a copy of the image but is a link; if there is a change to a file/directory on the filesystem; its copied up to write/read layer 
+- images are immutable
+- container appears to be a copy of the image but is a link; if there is a change to a file/directory on the filesystem; its copied up to write/read layer
 
 #### Tag and Push and Pull
 
-$ docker login --> stores a session ID 
-$ docker logout --> from untrusted host 
+$ docker login --> stores a session ID
+$ docker logout --> from untrusted host
 
 $ docker image tag <image> <name/image>
 $ docker image tag <image:latest> <docker.ambrygen.com/namespace/image:latest>
 
-- global namespace is only writable by administrators 
+- global namespace is only writable by administrators
 
 $ docker push <docker.ambrygen.com/namespace/image:latest>
 $ docker pull <docker.ambrygen.com/namespace/image:latest>
@@ -71,34 +71,34 @@ $ docker push localhost:5000/<name/app>
 
 #### Run, Stop and Remove a Container/s
 
-$ docker container run --publish 80:80 nginx 
-$ docker container run -d -p 80:80 nginx 
+$ docker container run --publish 80:80 nginx
+$ docker container run -d -p 80:80 nginx
 
 $ docker container stop <ID>
 
 $ docker container rm <ID>
 
-#### Jump onto a Container 
+#### Jump onto a Container
 
-$ docker container exec -it <container> bash 
+$ docker container exec -it <container> bash
 $ docker exec -it <container> bash -c 'tree -a /tmp'
 $ dk run --entrypoint /bin/bash <container> --> overwrite ENTRYPOINT
 $ dk ps -s --> container size on disk
 
-#### Copy from/to container 
+#### Copy from/to container
 
 $ docker cp script.sh <container>:/tmp/
 $ docker cp <container>:/tmp/. .
 
-#### Logging 
+#### Logging
 
 $ docker logs -f <someread>
 $ docker logs --tail 10 <someread>
 $ docker logs -h
 
-#### Monitoring 
+#### Monitoring
 
-- displaying asc size and image tag 
+- displaying asc size and image tag
 
 $ curl -s --unix-socket /var/run/docker.sock http:/images/json | jq '.[] | "\(.Size) \(.RepoTags[])"' test.json | sort -V
 
@@ -108,23 +108,23 @@ $ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <
 
 $ docker system prune -a --volumes
 
-#### Manage Stack of Containers 
+#### Manage Stack of Containers
 
-- settings like commands, ports, volumes, variables, networks etc are taken from docker-compose.yml 
+- settings like commands, ports, volumes, variables, networks etc are taken from docker-compose.yml
 
-$ docker-compose up --build 
+$ docker-compose up --build
 - --build recheck if image already exists
-$ doker-compose up -p <projectName> -d 
+$ doker-compose up -p <projectName> -d
 
 #### Volumes/Mounts
 
-- volumes can be shared among multiple containers 
+- volumes can be shared among multiple containers
 - replicas having access to the same files (NFS driver)
 - --volumes-from --> create a container that mounts that volume
 
 $ docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata --> backup data
 
-- anonymous volumes are deleted when vs named volumes 
+- anonymous volumes are deleted when vs named volumes
 
 $ docker run --rm -v /foo -v awesome:/bar busybox top --> foo is deleted but not awesome volume
 
