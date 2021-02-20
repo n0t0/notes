@@ -179,7 +179,7 @@ $ docker run -d \
 
 - --volume-from
 
-#### Healthcheck 
+#### Healthcheck
 
 HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD curl -sS 127.0.0.1:8080 || exit 1
 
@@ -188,7 +188,7 @@ HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD curl -sS 127.0.0.1:8080 
 
 $ docker stack deploy -c <stack-file.yml> <projectName>
 
-#### Network 
+#### Network
 
 $ docker network ls
 
@@ -201,22 +201,22 @@ $ docker service create --replicas 2 --network my-overlay-network nginx
 
 - embedded DNS --> reference by container name, not IP
 
-### Quorum 
+### Quorum
 
-- minimum number of votes that a consensus group needs in order to be allowed to perform an operation 
-- (N/2) + 1 --> 7/2 = 3 + 1 = 4 --> quorum 
-- odd numbers 
+- minimum number of votes that a consensus group needs in order to be allowed to perform an operation
+- (N/2) + 1 --> 7/2 = 3 + 1 = 4 --> quorum
+- odd numbers
 
-## Swarms 
+## Swarms
 
 - swarm a group of machines running Docker and joined into a cluster
 
 - emptiest node fills the least utilized machine with containers
-- global each node gets exactly one instance of specified container 
+- global each node gets exactly one instance of specified container
 
-- only swarm managers authorize machines to join the swarm as workers 
+- only swarm managers authorize machines to join the swarm as workers
 
-- when swarm mode is on - docker executes commands on the swarm not only local machine 
+- when swarm mode is on - docker executes commands on the swarm not only local machine
 
 ### Raft 
 
