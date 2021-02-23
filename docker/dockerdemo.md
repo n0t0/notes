@@ -218,32 +218,32 @@ $ docker service create --replicas 2 --network my-overlay-network nginx
 
 - when swarm mode is on - docker executes commands on the swarm not only local machine
 
-### Raft 
+### Raft
 
-- log replication 
-- leader election 
-- safety 
+- log replication
+- leader election
+- safety
 
 - not running work on managers nodes
 
 $ docker node update --availability drain <NODE>
 
-### Leader Election & Log Replication 
+### Leader Election & Log Replication
 
-- leader goes down, first follower to timeout send an election 
+- leader goes down, first follower to timeout send an election
 
-#### Multi-node Swarm/Scaling/Orchestration/Management 
+#### Multi-node Swarm/Scaling/Orchestration/Management
 
 - load balancing
-- highly available 
+- highly available
 - scaling
 - rolling updates (little to none down-time when deploying)
 - secure
 - self-healing
- 
-#### Swarm Management 
 
-$ docker node update --label-add <key>=<value> <node-id> --> label a node 
+#### Swarm Management
+
+$ docker node update --label-add <key>=<value> <node-id> --> label a node
 $ docker service create --constraint 'node.labels.type == webserver' nginx
 $ docker service create --name redis --placement-pref 'spread=node.labels.dc' redis
 
@@ -264,7 +264,7 @@ $ docker service update --replicas=4 my-web-server
 $ docker service update --image redis:3.0.7 redis
 $ docker service update --help
 
-#### Secrets 
+#### Secrets
 
 $ docker secret create <secret_name> <local_secret_file.txt>
 $ echo "strong_password" | docker sercret create <secret_name> -
@@ -276,9 +276,9 @@ $ docker service update \
   --secret-add src=secret-2,target=db-password \r
   web
 
-#### Kubernetes 
+#### Kubernetes
 
-#### Backup and Restore 
+#### Backup and Restore
 
 - choose your one of your container
 $ docker ps -a
@@ -290,7 +290,7 @@ $ docker images
 
 $ docker save -o <container>.tar <backupName>
 
-- restore container 
+- restore container
 
 $ docker load -i <CONTAINER_FILE>.tar
 
@@ -302,7 +302,7 @@ www.cloud.docker.com
 - link Source Providers --> BitBucket
 
 
-#### Networking - Kubernetis 
+#### Networking - Kubernetis
 
 - Calico
 - Tigera
@@ -310,5 +310,3 @@ www.cloud.docker.com
 - flannel
 
 ### vMotion or DRS (scheduler)
-
-- 
