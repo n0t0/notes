@@ -7,12 +7,12 @@ https://www.elastic.co/blog/beats-1-1-0-and-winlogbeat-released --> log stack
 
 $ docker pull sebp/elk
 
-### Increase Virtual Memory 
+### Increase Virtual Memory
 
 $ sudo sysctl -w vm.max_map_count=262144
 $ echo 'vm.max_map_count=262144' >> /etc/sysctl.conf (to persist reboots)
 
-### Run Container 
+### Run Container
 
 $ docker network create -d bridge elknet
 
