@@ -1,29 +1,29 @@
 ### vi
 
-- COMMAND MODE —> i, a (use end of line)- insert mode; o - line below; R - replacement 
+- COMMAND MODE —> i, a (use end of line)- insert mode; o - line below; R - replacement
 
-### Navigation 
+### Navigation
 
-h —> left 
+h —> left
 j —> down
 k —> up
-l —> right 
+l —> right
 
-0 —> beginning of the line 
-$ —> end of the line 
-w —> next word 
-b —> word before 
+0 —> beginning of the line
+$ —> end of the line
+w —> next word
+b —> word before
 
 H —> homes the screen
 L —> bottom the screen
 5G —> go to line 5
-G —> last line 
+G —> last line
 
-R —> replacement 
-u —> undo 
+R —> replacement
+u —> undo
 
 
-### Deleting 
+### Deleting
 
 x —> deletes a char 
 X —> deletes a char before 
