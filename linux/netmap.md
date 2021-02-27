@@ -34,27 +34,27 @@ $ sudo nmap -PN -p port_number -sN remote_host
 
 $ sudo nmap -PN -p port_number -sV remote_host —> scan services and their versions
 
-### Detecting Live Hosts 
+### Detecting Live Hosts
 
-$ sudo nmap -sn 192.168.56.0/24 
+$ sudo nmap -sn 192.168.56.0/24
 $ sudo nmap -iL / file.txt
 $ sudo nmap 192.168.57.0/24 —exclude 192.168.1.5
 $ sudo nmap -iL /tmp/scanlist.txt —exclude /tmp/exclude.txt
 
-### Firewall Scanning 
+### Firewall Scanning
 
 $ sudo tcpdump host target_ip_addr -w /tmp/scan_results/packets
 
 $ sudo nmap -sS -Pn -p-p -T4 -vv —reason -oN /tmp/scan_results/nmap.results target_ip_addr
 
-$ sudo tcpdump -nn -r /tmp/scan_results/packets | less 
+$ sudo tcpdump -nn -r /tmp/scan_results/packets | less
 
-### Scanning for Open UDP Ports 
+### Scanning for Open UDP Ports
 
-$ sudo sysctl -w net.ipv4.icmp_ratelimit=0  —> ICMP ping limit 
-$ sudo sysctl net.inet.icmp.icmplim —> macOS 
+$ sudo sysctl -w net.ipv4.icmp_ratelimit=0  —> ICMP ping limit
+$ sudo sysctl net.inet.icmp.icmplim —> macOS
 
-### Layer 2 Discovery 
+### Layer 2 Discovery
 
 $ sudo nmap 172.16.36.133 -sn
 
@@ -62,7 +62,7 @@ $ sudo nmap 172.16.36.133 -sn
 
 $ sudo nmap -sT 172.16.36.133 -p 22 —script=banner
 
-### Information Gathering 
+### Information Gathering
 
 $ sudo nmap —script ip-geolocation-* hostname
 $ sudo nmap -p80 --script dns-brute hostname
