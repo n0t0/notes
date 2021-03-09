@@ -68,37 +68,37 @@ $ sudo nmap —script ip-geolocation-* hostname
 $ sudo nmap -p80 --script dns-brute hostname
 $ sudo nmap -p80 —script http-reverse-ip hostname
 
-### Penetrating into Servers 
+### Penetrating into Servers
 
 $ sudo nmap -p1433 —script ms-sql-info 192.168.1.77
 $ sudo nmap -p1433 —script ms-sql-brute 192.168.1.77
 
-$ sudo nmap -p1433 -script ms-sql-brute -script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt —> check for users and passwords passed as arguments 
+$ sudo nmap -p1433 -script ms-sql-brute -script-args userdb=/var/usernames.txt,passdb=/var/passwords.txt —> check for users and passwords passed as arguments
 
-$ sudo nmap -p1433 —script ms-sql-empty-password 192.168.1.77 —> check for null password 
+$ sudo nmap -p1433 —script ms-sql-empty-password 192.168.1.77 —> check for null password
 
-$ sudo nmap -p1433 —script ms-sql-hasdbaccess.nse —script -args mussel.username=sa 192.168.1.77 —> SA has no password and DBs are known 
+$ sudo nmap -p1433 —script ms-sql-hasdbaccess.nse —script -args mussel.username=sa 192.168.1.77 —> SA has no password and DBs are known
 
 $ sudo nmap -p1433 —script ms-sql-tables —script -args mssql.username=sa 192.168.1.77
 
-$ sudo nmap -p1433 —script ms-sql-xp-cmdshell —script -args mssql.username=sa 192.168.1.77 —> for SQL server 2000 
+$ sudo nmap -p1433 —script ms-sql-xp-cmdshell —script -args mssql.username=sa 192.168.1.77 —> for SQL server 2000
 
-### Hacking 
+### Hacking
 
-$ sudo nmap -p80,443 --script http-waf-detect --script-args="http-waf-detect.aggro,http-waf-detect.detectBodyChanges" targetWebsite.com —> WAF detection 
+$ sudo nmap -p80,443 --script http-waf-detect --script-args="http-waf-detect.aggro,http-waf-detect.detectBodyChanges" targetWebsite.com —> WAF detection
 
-$ sudo nmap -p80,443 --script http-waf-fingerprint targetWebsite.com —> WAF fingerprint detection 
+$ sudo nmap -p80,443 --script http-waf-fingerprint targetWebsite.com —> WAF fingerprint detection
 
-$ sudo nmap -p80,443 --script http-waf-fingerprint --script-args http-waf-fingerprint.intensive=1 targetWebsite —> intensive 
+$ sudo nmap -p80,443 --script http-waf-fingerprint --script-args http-waf-fingerprint.intensive=1 targetWebsite —> intensive
 
-$ sudo nmap -p80,443 --script http-errors targetWebsite.com —> HTTP errors codes 
+$ sudo nmap -p80,443 --script http-errors targetWebsite.com —> HTTP errors codes
 
 $ sudo nmap -vv -p80,443 --script http-errors --script-args "httpspider.url=/docs/,httpspider.maxpagecount=3,httpspider.maxdepth=1" targetwebsite.com —> likewise (intensive)
 
-$ sudo nmap -p80,443 --script dns-brute targetWebsite.com —> find shares and new servers 
+$ sudo nmap -p80,443 --script dns-brute targetWebsite.com —> find shares and new servers
 
-$ sudo nmap -p80,443 --script dns-brute --script-args dns-brute.threads=25,dns-brute.hostlist=/root/Desktop/custom-subdomain-wordlist.txt targetWebsite.com —> intensive 
+$ sudo nmap -p80,443 --script dns-brute --script-args dns-brute.threads=25,dns-brute.hostlist=/root/Desktop/custom-subdomain-wordlist.txt targetWebsite.com —> intensive
 
-$ sudo nmap -p80,443 --script http-exif-spider targetWebsite.com —> EXIF 
+$ sudo nmap -p80,443 --script http-exif-spider targetWebsite.com —> EXIF
 
-$ sudo nmap -p80,443 --script http-exif-spider --script-args="http.max-cache-size=99999999" targetWebsite.com —> intensive 
+$ sudo nmap -p80,443 --script http-exif-spider --script-args="http.max-cache-size=99999999" targetWebsite.com —> intensive
