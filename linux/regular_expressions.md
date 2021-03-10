@@ -3,19 +3,19 @@
 ### Basics
 
 - ^ - beginning of line
-- $ - end of line 
-- . - a single character 
+- $ - end of line
+- . - a single character
 - ? - preceding character matches 0 or 1 times only
 - * - preceding character matches 0 or more times
-- + - preceding character matches 1 or more times  
+- + - preceding character matches 1 or more times
 - [] - range
 - [xyz] - on of the characters in the set range
-- [^xyz] - negate of occurrence of a character set 
-- {n} - the preceding character matches at least n times 
+- [^xyz] - negate of occurrence of a character set
+- {n} - the preceding character matches at least n times
 - {n,m} - the preceding character matches at least n times and not more than m times
-- <word> - word matching 
+- <word> - word matching
 - Escape character
-- | - pipe or logical symbol 
+- | - pipe or logical symbol
 
 ### ^
 
